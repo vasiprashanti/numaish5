@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Visitor Guidelines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000844;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #000844;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #bcbcbc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #12014b;
+            text-align: center;
+        }
+        th {
+            background: #9a9a9b;
+            font-weight: bold;
+        }
+        .go-back {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #00429f;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .go-back:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            table {
+                font-size: 14px;
+            }
+            .go-back {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 480px) {
+            table {
+                font-size: 12px;
+            }
+        }
+    
+        /* Bottom Navbar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000f4be8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item {
+    color: white;
+    text-align: center;
+    flex: 1;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.nav-item i {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.nav-item:hover {
+    background: #6281b6;
+}
+
+/* More Responsive Design */
+@media (max-width: 468px) {
+    .hero {
+        height: 50vh;
+    }
+    .hero h1 {
+        font-size: 22px;
+    }
+    .hero-buttons {
+        max-width: 250px;
+    }
+    .hero-buttons a {
+        width: 90px;
+        height: 90px;
+        font-size: 13px;
+        padding: 8px;
+    }
+    .hero-buttons a img {
+        width: 30px;
+        height: 30px;
+    }
+    .nav-item {
+        font-size: 13px;
+        padding: 8px;
+    }
+    .nav-item i {
+        font-size: 14px;
+    }
+}
+
+   
+    </style>
+</head>
+<body>
+    <a href="home.html" class="go-back">&#8592;</a>
+    <div class="container">
+        <h1>Visitor Guidelines</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Do's</th>
+                    <th>Don'ts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Carry multiple payment options including cash and digital payments.</td><td>Avoid carrying valuables such as expensive jewelry and unnecessary gadgets.</td></tr>
+                <tr><td>Keep personal items such as wallets and mobile phones secure.</td><td>Do not litter; use designated waste disposal bins.</td></tr>
+                <tr><td>Use public transport like metro, cabs, or autos to avoid parking issues.</td><td>Do not park in unauthorized areas to avoid fines or towing.</td></tr>
+                <tr><td>Supervise children and senior citizens closely in crowded areas.</td><td>Do not engage in conflicts; maintain a polite demeanor.</td></tr>
+                <tr><td>Follow security and event guidelines, including entry/exit protocols.</td><td>Do not ignore emergency exits; familiarize yourself with their locations.</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bottom Navbar -->
+    <div class="bottom-nav">
+        <a href="Home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="map.html" class="nav-item">
+            <i class="fas fa-map"></i>
+            Schematic Map
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <i class="fas fa-images"></i>
+            Gallery
+        </a>
+        
+        <a href="about.html" class="nav-item">
+            <i class="fas fa-info-circle"></i>
+            About Us
+        </a>
+        </div>
+
+</body>
+</html>

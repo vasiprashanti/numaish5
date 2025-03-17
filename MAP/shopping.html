@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+     <!-- Font Awesome for Icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #002b77;
+            text-align: center;
+            padding: 20px;
+            color: aliceblue;
+        }
+
+        h1 {
+            margin-top: 80px;
+            margin-bottom: 80px;
+            font-size: 36px;
+            color: #f3f4f9;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .shop-container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .shop-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            background: #00135d;
+            border-radius: 8px;
+            padding: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .shop-item:hover {
+            background: #0056b3;
+        }
+
+        .shop-button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            flex-grow: 1;
+        }
+
+        .shop-button img {
+            width: 40px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .shop-text {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .direction-icon {
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .direction-icon img {
+            width: 70%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .direction-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .shop-button {
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shop-button {
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        /* Bottom Navbar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #000f4b;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            color: white;
+            text-align: center;
+            flex: 1;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-item i {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .nav-item:hover {
+            background: #6281b6;
+        }
+/* Go Back Button */
+.go-back {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #00429f;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .go-back:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .go-back {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Shopping at Numaish</h1>
+    <a href="home.html" class="go-back">&#8592;</a>
+    <div class="shop-container">
+    
+        <div class="shop-item">
+            <a href="cnf.html" class="shop-button">
+                <img src="../icons/5.png" alt="Clothes">
+                <span class="shop-text">Clothing & Fashion</span>
+            </a>
+            <a href="map1.html" class="direction-icon">
+                <img src="../icons/9.png" alt="Direction">
+            </a>
+        </div>
+        <div class="shop-item">
+            <a href="crockery.html" class="shop-button">
+                <img src="../icons/7.png" alt="Crockery">
+                <span class="shop-text">Crockery</span>
+            </a>
+            <a href="map2.html" class="direction-icon">
+                <img src="../icons/9.png" alt="Direction">
+            </a>
+        </div>
+    
+        <div class="shop-item">
+            <a href="df.html" class="shop-button">
+                <img src="../icons/8.png" alt="Dry Fruits">
+                <span class="shop-text">Dry Fruits</span>
+            </a>
+            <a href="map3.html" class="direction-icon">
+                <img src="../icons/9.png" alt="Direction">
+            </a>
+        </div>
+    </div>
+    
+    </div>
+<!-- Bottom Navbar -->
+<div class="bottom-nav">
+    <a href="Home.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        Home
+    </a>
+    <a href="map.html" class="nav-item">
+        <i class="fas fa-map"></i>
+        Schematic Map
+    </a>
+    <a href="gallery.html" class="nav-item">
+        <i class="fas fa-images"></i>
+        Gallery
+    </a>
+    
+    <a href="about.html" class="nav-item">
+        <i class="fas fa-info-circle"></i>
+        About Us
+    </a>
+    </div>
+    </div>
+
+</body>
+</html>

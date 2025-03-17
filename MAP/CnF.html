@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CnF</title>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #00429f;
+            color: aliceblue;
+            font-size: 20px;
+        }
+
+        /* Container for stall cards */
+        .stall-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 cards per row on large screens */
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        /* Individual stall card */
+        .stall-card {
+            background: white;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+            width: 100%;
+            max-width: 250px; /* Smaller card size */
+        }
+
+        .stall-card:hover {
+            transform: scale(1.03);
+        }
+
+        /* Stall Image */
+        .stall-card img {
+            width: 100%;
+            height: 150px; /* Smaller image */
+            object-fit: cover;
+        }
+
+        /* Stall Info */
+        .stall-info {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stall-info h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Direction button */
+        .direction-btn {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .direction-btn:hover {
+            color: #0056b3;
+        }
+
+        /* Bottom Navbar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #000f4b;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            color: white;
+            text-align: center;
+            flex: 1;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-item i {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .nav-item:hover {
+            background: #6281b6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .stall-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 cards per row for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stall-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stall-card {
+                max-width: 180px;
+            }
+
+            .stall-card img {
+                height: 120px; /* Reduce image size for smaller screens */
+            }
+
+            .stall-info h3 {
+                font-size: 14px;
+            }
+        }
+
+        /* Add Left Margin for Laptops */
+        @media (min-width: 1024px) {
+            .stall-container {
+                margin-left: 50px; /* Left margin for laptops */
+            }
+        }
+        /* Go Back Button */
+        .go-back {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #00429f;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .go-back:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .go-back {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>Clothing & Fashion Stalls</h2>
+    <a href="javascript:history.back()" class="go-back">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <div class="stall-container">
+        <!-- Stall 1 -->
+        <div class="stall-card">
+            <a href="map1.html"><img src="../shop/ch.png" alt="Stall 1">
+                <div class="stall-info"></a>
+                    <h3>Cashmere Hub</h3>
+                <a href="map1.html" class="direction-btn"><i class="fas fa-directions"></i></a>
+            </div>
+        </div>
+    
+        <!-- Stall 2 -->
+        <div class="stall-card">
+            <a href="map1.html"><img src="../shop/rjc.png" alt="Stall 2">
+                <div class="stall-info"></a>
+                    <h3>Ram Janki Chikankari</h3>
+                <a href="map1.html" class="direction-btn"><i class="fas fa-directions"></i></a>
+            </div>
+        </div>
+    
+        <!-- Stall 3 -->
+        <div class="stall-card">
+            <a href="map1.html"><img src="../shop/ib.png" alt="Stall 3">
+                <div class="stall-info"></a>
+                    <h3>Ikkat Bags</h3>
+                <a href="map1.html" class="direction-btn"><i class="fas fa-directions"></i></a>
+            </div>
+        </div>
+    
+        <!-- Stall 4 -->
+        <div class="stall-card">
+            <a href="map1.html"><img src="../shop/sd.png" alt="Stall 4">
+                <div class="stall-info"></a>
+                    <h3>SD SHAH and Sons</h3>
+                <a href="map1.html" class="direction-btn"><i class="fas fa-directions"></i></a>
+            </div>
+        </div>
+    
+        <!-- Stall 5 -->
+        <div class="stall-card">
+            <a href="map1.html"><img src="../shop/baj.png" alt="Stall 5">
+                <div class="stall-info"></a>
+                    <h3>Bollywood Jewelry</h3>
+                <a href="map1.html" class="direction-btn"><i class="fas fa-directions"></i></a>
+            </div>
+        </div>
+    </div>
+    
+<!-- Bottom Navbar -->
+<div class="bottom-nav">
+    <a href="Home.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        Home
+    </a>
+    <a href="map.html" class="nav-item">
+        <i class="fas fa-map"></i>
+        Schematic Map
+    </a>
+    <a href="gallery.html" class="nav-item">
+        <i class="fas fa-images"></i>
+        Gallery
+    </a>
+    
+    <a href="about.html" class="nav-item">
+        <i class="fas fa-info-circle"></i>
+        About Us
+    </a>
+    </div>
+</body>
+</html>

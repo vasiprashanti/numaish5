@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numaish Exhibition</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+    /* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Background */
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 100%;
+}
+
+/* Main Title */
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styled Subheadings */
+.hero h3, .hero h4 {
+    font-style: italic;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 300;
+    width: 100%;
+   
+    margin: 10px 0;
+    white-space: normal;  /* ✅ Ensures proper wrapping */
+    overflow: visible;    /* ✅ Prevents text from being cut off */
+    display: block !important;  /* ✅ Forces visibility */
+    opacity: 1 !important;  /* ✅ Ensures visibility */
+}
+
+/* Align h3 to left on larger screens */
+.hero h3 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Align h4 to right on larger screens */
+.hero h4 {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons a {
+    width: 150px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    background: #9564d6c8;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.hero-buttons a img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+}
+
+.hero-buttons a:hover {
+    background: #5da2eb;
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+@media (max-width: 1024px) { /* iPad Mini & Tablets */
+    .hero h1 {
+        font-size: 2.8rem;
+        margin-top: 50px;
+    }
+
+    .hero h3, .hero h4 {
+        text-align: center;
+        font-size: 1.5rem;
+        display: block;
+        white-space: normal;
+    }
+
+    .hero-buttons {
+        max-width: 400px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 768px) { /* Small Tablets & Large Phones */
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-top: 40px;
+    }
+
+    .hero h3, .hero h4 {
+        font-size: 1.5rem;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .hero-buttons {
+        max-width: 300px;
+        margin-top: 40px;
+    }
+
+    .hero-buttons a {
+        width: 100px;
+        height: 100px;
+        font-size: 14px;
+    }
+
+    .hero-buttons a img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 468px) { /* Small Phones */
+    .hero{
+        margin-top: 70px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h3 {
+        font-size: 1.4rem;
+        text-align: left ;
+        display: block;
+    }
+    .hero h4{
+        font-size: 1.4rem;
+        text-align: right ;
+        display: block;
+    }
+
+    .hero-buttons {
+        max-width: 250px;
+    }
+
+    .hero-buttons a {
+        width: 90px;
+        height: 90px;
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .hero-buttons a img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Bottom Navbar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000f4be8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item {
+    color: white;
+    text-align: center;
+    flex: 1;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.nav-item i {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.nav-item:hover {
+    background: #6281b6;
+}
+
+/* More Responsive Design */
+@media (max-width: 468px) {
+    .hero {
+        height: 50vh;
+    }
+    .hero h1 {
+        font-size: 22px;
+    }
+    .hero-buttons {
+        max-width: 250px;
+    }
+    .hero-buttons a {
+        width: 90px;
+        height: 90px;
+        font-size: 13px;
+        padding: 8px;
+    }
+    .hero-buttons a img {
+        width: 30px;
+        height: 30px;
+    }
+    .nav-item {
+        font-size: 13px;
+        padding: 8px;
+    }
+    .nav-item i {
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Video Background -->
+    <video autoplay muted loop>
+        <source src="HERO.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+<!-- Hero Section -->
+<div class="hero">
+    <h3>Your Odyssey to</h3>
+    <h1>N U M A I S H</h1>
+    <h4>~simplified</h4>
+    <div class="hero-buttons">
+        <a href="time.html" id="timings-btn">
+            <img src="../MAP/icons/10.png" alt="Timings">
+            Timings
+        </a>
+        <a href="shopping.html">
+            <img src="../MAP/icons/9.png" alt="Shops">
+            Shopping
+        </a>
+        <a href="guide.html" id="guidelines-btn">
+            <img src="../icons/12.png" alt="Guidelines">
+            Visitor Guidelines
+        </a>
+        <a href="tport.html" id="transport-btn">
+            <img src="../icons/11.png" alt="Transport">
+            Transport
+        </a>
+        
+        <a href="#" onclick="openMaps()" id="directions-btn">
+            <img src="../icons/1.png" alt="Location">
+            Directions
+        </a>
+        <a href="https://www.sriqr.com/#/ticketbooking/676e911f589fc600606a9f4a/hyderabad%20industrial%20exhibition%202025">
+            <img src="../icons/2.png" alt="Tickets">
+            Buy Tickets
+        </a>
+        
+    </div>
+</div>
+
+    <!-- Bottom Navbar -->
+    <div class="bottom-nav">
+        <a href="Home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="map.html" class="nav-item">
+            <i class="fas fa-map"></i>
+            Schematic Map
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <i class="fas fa-images"></i>
+            Gallery
+        </a>        
+        <a href="about.html" class="nav-item">
+            <i class="fas fa-info-circle"></i>
+            About Us
+        </a>
+        </div>
+
+    <script>
+        function openMaps() {
+            var destination = "Exhibition+Grounds,+Exhibition+ground,+Patel+Nagar,+Ghosha+Mahal+North,+Nampally,+Hyderabad,+Telangana+500001";
+            var startPoint = "Your+Current+Location";  
+            var googleMapsUrl = "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(startPoint) + "&destination=" + encodeURIComponent(destination) + "&travelmode=driving";
+            window.open(googleMapsUrl, "_blank");
+        }
+
+        if (navigator.platform.indexOf("iPhone") !== -1 || navigator.platform.indexOf("iPad") !== -1) {
+            window.location.href = appleMapsUrl;
+        } else {
+            window.location.href = googleMapsUrl;
+        }
+    </script>
+
+</body>
+</html>

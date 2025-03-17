@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numaish 2025 Gallery</title>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #001849;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            gap: 10px;
+            padding: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Custom Sizes */
+        .wide {
+            grid-column: span 2;
+        }
+
+        .wide-big {
+            grid-column: span 3;
+        }
+
+        .tall {
+            grid-row: span 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+            .wide, .wide-big, .tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        /* Go Back Button */
+        .go-back {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #00429f;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .go-back:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+
+        .go-back i {
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .go-back {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>NUMAISH 2025 GALLERY</h1>
+    
+    <!-- Go Back Button (Now Working) -->
+    <a href="home.html" class="go-back">&#8592;</a>
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="gallery">
+        <div class="gallery-item tall"><img src="../1920/Numaish_001.jpg" alt="Image 1"></div>
+        <div class="gallery-item wide"><img src="../1920/Numaish_018.jpg" alt="Image 2"></div>
+        <div class="gallery-item"><img src="../1920/Numaish_011.jpg" alt="Image 3"></div>
+        <div class="gallery-item"><img src="../1920/Numaish_045.jpg" alt="Image 4"></div>
+        <div class="gallery-item wide-big"><img src="../1920/Numaish_009.jpg" alt="Image 5"></div>
+        <div class="gallery-item tall"><img src="../1920/Numaish_058.jpg" alt="Image 6"></div>
+        <div class="gallery-item"><img src="../1920/Numaish_021.jpg" alt="Image 7"></div>
+        <div class="gallery-item wide"><img src="../1920/Numaish_070.jpg" alt="Image 8"></div>
+        <div class="gallery-item wide-big"><img src="../1920/Numaish_010.jpg" alt="Image 9"></div>
+        <div class="gallery-item tall"><img src="../1920/Numaish_075.jpg" alt="Image 10"></div>
+        <div class="gallery-item"><img src="../1920/Numaish_011.jpg" alt="Image 11"></div>
+        <div class="gallery-item wide"><img src="../1920/Numaish_036.jpg" alt="Image 12"></div>
+        <div class="gallery-item tall"><img src="../1920/Numaish_066.jpg" alt="Image 13"></div>
+        <div class="gallery-item"><img src="../1920/Numaish_015.jpg" alt="Image 14"></div>
+        <div class="gallery-item"><img src="../1920/Numaish_070.jpg" alt="Image 15"></div>
+        <div class="gallery-item wide-big"><img src="../1920/Numaish_002.jpg" alt="Image 16"></div>
+        <div class="gallery-item tall"><img src="../1920/Numaish_008.jpg" alt="Image 17"></div>
+        <div class="gallery-item wide"><img src="../1920/Numaish_055.jpg" alt="Image 18"></div>
+    </div>
+
+</body>
+</html>

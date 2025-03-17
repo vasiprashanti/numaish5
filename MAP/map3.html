@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dry Fruits-Map</title>
+
+    <!-- Mapbox GL CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #00429f;
+            color: rgb(0, 13, 87);
+            font-size: 20px;
+        }
+
+        #map {
+            height: 80vh;
+            width: 100%;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 60px; /* Adjusted padding to avoid overlap */
+            cursor: grab; /* Set default grab cursor for the map */
+        }
+
+        #map:active {
+            cursor: grabbing; /* Change to grabbing cursor when active */
+        }
+
+        @media (max-width: 768px) {
+            #map {
+                height: 70vh;
+            }
+        }
+        @media (max-width: 468px) {
+            #map {
+                height: 70vh;
+            }
+        }
+
+        /* Bottom Navbar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #000f4b;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            color: white;
+            text-align: center;
+            flex: 1;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-item i {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .nav-item:hover {
+            background: #6281b6;
+        }
+        .mapboxgl-ctrl-logo { display: none !important; }
+        .mapboxgl-ctrl-attrib {
+            display: none !important;
+        }
+
+        /* Go Back Button */
+        .go-back {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #00429f;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .go-back:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .go-back {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>Dry Fruits Stalls</h2>
+    <div id="map"></div>
+    <a href="javascript:history.back()" class="go-back">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+     <!-- Bottom Navbar -->
+     <div class="bottom-nav">
+        <a href="Home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <i class="fas fa-images"></i>
+            Gallery
+        </a>
+        
+        <a href="#" class="nav-item">
+            <i class="fas fa-info-circle"></i>
+            About Us
+        </a>
+        </div>
+        <!-- Mapbox GL JS -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<script>
+    // Replace with your Mapbox Access Token
+    mapboxgl.accessToken = "pk.eyJ1IjoicHJpeWFua2FrYXRlIiwiYSI6ImNtOGFoMnM0ejFnMzYya3NmZXJscmtnbGIifQ.Ba2QN3_0eeOlrlEHYzzDUg"; 
+
+    // Initialize 3D Map
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12', // Change to 'satellite-streets-v12' for a satellite view
+        center: [78.4710, 17.3850], // Numaish Exhibition Grounds
+        zoom: 17,
+        pitch: 60, // 🔥 Tilt for 3D effect
+        bearing: -20, // 🔄 Rotate map slightly
+        antialias: true // Makes 3D look smooth
+    });
+
+    // Add zoom and rotation controls
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // Add 3D buildings (extrusions)
+    map.on('load', () => {
+        map.addLayer({
+            id: '3d-buildings',
+            source: 'composite',
+            'source-layer': 'building',
+            type: 'fill-extrusion',
+            paint: {
+                'fill-extrusion-color': '#aaa',
+                'fill-extrusion-height': ["get", "height"],
+                'fill-extrusion-base': ["get", "min_height"],
+                'fill-extrusion-opacity': 0.6
+            }
+        });
+
+        // Add Pins for Stalls
+        var locations = [
+    { name: "Dry Fruit World", lat: 17.3851, lng: 78.4710 },
+    { name: "Healthy Nuts & Dry Fruits", lat: 17.3852, lng: 78.4711 },
+    { name: "Dry Fruit House", lat: 17.3851, lng: 78.4709 },
+    { name: "Freshly Dried", lat: 17.3850, lng: 78.4708 },
+    { name: "Nutty Delights", lat: 17.3850, lng: 78.4707 },
+    { name: "The Nut Basket", lat: 17.3852, lng: 78.4708 }
+];
+
+        let currentPopup = null; // Store the current popup reference
+
+        locations.forEach(location => {
+            const marker = new mapboxgl.Marker({ color: '#0d268c' }) // Blue color for stall markers
+                .setLngLat([location.lng, location.lat])
+                .addTo(map);
+
+            // Change cursor to pointer on hover
+            marker.getElement().style.cursor = 'pointer';
+
+            // Add event listener for mouse click to toggle popup visibility
+            marker.getElement().addEventListener('click', function() {
+                // If the same popup is clicked, remove it
+                if (currentPopup && currentPopup.isOpen()) {
+                    currentPopup.remove();
+                    currentPopup = null; // Reset the popup reference
+                } else {
+                    // If a new popup is clicked, close the existing one (if any)
+                    if (currentPopup) {
+                        currentPopup.remove();
+                    }
+
+                    // Create a new popup
+                    currentPopup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
+                        .setLngLat([location.lng, location.lat])
+                        .setHTML(`<b>${location.name}</b>`)
+                        .addTo(map);
+                }
+            });
+        });
+
+        // Add Gates with only text labels
+        var gates = [
+            { name: "GATE 1-Gandhi Bhavan Gate", lat: 17.38802, lng: 78.4702 },
+            { name: "GATE 2-Ajantha Gate", lat: 17.386298, lng: 78.471408 },
+            { name: "GATE 3-Ghoshmahal Gate", lat: 17.384488, lng: 78.472395 },
+            { name: "GATE 5-Emergency Exit", lat: 17.385128, lng: 78.472097 },
+            { name: "GATE 4-Emergency Exit", lat: 17.385613, lng: 78.471829 },
+            { name: "GATE 6-Emergency Exit", lat: 17.385503, lng: 78.469241 },
+            { name: "GATE 7-Service Emergency Exit", lat: 17.386055, lng: 78.469221 },
+            { name: "GATE 8-Emergency Exit", lat: 17.386298, lng: 78.469236 },
+            { name: "GATE 9-Emergency Exit", lat: 17.386784, lng: 78.469576 }
+            
+        ];
+
+        gates.forEach(gate => {
+            // Create a div element for the gate label
+            const gateLabel = document.createElement('div');
+            gateLabel.innerHTML = `<b>${gate.name}</b>`;
+            gateLabel.style.color = '#ff6347';
+            gateLabel.style.fontSize = '14px';
+            gateLabel.style.fontWeight = 'bold';
+            gateLabel.style.background = 'rgba(255, 255, 255, 0.7)';
+            gateLabel.style.padding = '4px 8px';
+            gateLabel.style.borderRadius = '4px';
+            gateLabel.style.textAlign = 'center';
+
+            // Create a custom HTML marker with the gate label
+            new mapboxgl.Marker({ element: gateLabel })
+                .setLngLat([gate.lng, gate.lat])
+                .addTo(map);
+        });
+    });
+</script>
+</body>
+</html>
